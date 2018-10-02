@@ -43,3 +43,9 @@ public func == <T: Equatable>(lhs: Recorded<Event<T>>, rhs: Recorded<Event<T>>) 
 public func == <T: Equatable>(lhs: Recorded<Event<T?>>, rhs: Recorded<Event<T?>>) -> Bool {
     return lhs.time == rhs.time && lhs.value == rhs.value
 }
+
+extension Recorded : Equatable where Value == Event<Void>  {
+    public static func == (lhs: Recorded<Event<Void>>, rhs: Recorded<Event<Void>>) -> Bool {
+        return lhs.time == rhs.time && lhs.value == rhs.value
+    }
+}
